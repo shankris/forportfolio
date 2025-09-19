@@ -173,14 +173,15 @@ section {
 
 .skipLink {
   position: absolute;
-  top: -40px;
+  top: -50px;
+  left: 10px;
   /* hidden off screen */
-  left: 0;
-  background: var(--color-bg);
-  color: var(--color-text);
+  /* left: 0; */
+  background: var(--bgColor);
+  color: var(--txtColor);
   padding: 8px 16px;
   z-index: 100;
-  border: 2px solid var(--color-text);
+  border: 2px solid var(--txtColor);
   border-radius: 4px;
   font-weight: 600;
   text-decoration: none;
