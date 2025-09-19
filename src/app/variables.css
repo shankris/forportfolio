@@ -102,6 +102,15 @@
   --heatmap-2: #7bc96f;
   --heatmap-3: #239a3b;
   --heatmap-4: #196127;
+  --tooltip-bg: #333;
+  --tooltip-text: #fff;
+
+  --heatmap-cell-size: 14px;
+  /* change in one place if you want different size */
+  --heatmap-cell-gap: 3px;
+  /* horizontal gap between weeks */
+  --heatmap-weekday-spacer: 30px;
+  /* left space for weekday labels */
 }
 
 
@@ -184,4 +193,6 @@ body.dark {
   --heatmap-2: #006d32;
   --heatmap-3: #26a641;
   --heatmap-4: #39d353;
+  --tooltip-bg: #eaeaea;
+  --tooltip-text: #111;
 }

@@ -1,0 +1,147 @@
+.heatmapWrapper {
+  position: relative;
+  /* Reserve vertical space for month labels at top (adjust if needed) */
+  padding-top: 22px;
+  /* keep content from overflowing because labels are absolutely positioned */
+  overflow: visible;
+}
+
+/* Month labels overlay (absolute children will be positioned by inline style.left) */
+.monthRow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 20px;
+  width: 100%;
+  pointer-events: none;
+  /* labels don't block pointer events over cells */
+}
+
+/* Each month label is absolutely positioned by JS (style.left) */
+.monthLabel {
+  position: absolute;
+  top: 0;
+  font-size: 10px;
+  color: var(--text-muted, #6b7280);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Main grid area (weekday col + weeks columns) */
+.heatmapGrid {
+  display: flex;
+  gap: 0;
+  align-items: flex-start;
+}
+
+/* Left weekday column */
+.weekdayCol {
+  width: var(--heatmap-weekday-spacer, 30px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text-secondary, #6b7280);
+  /* Compute height: 7 cells + 6 gaps */
+  height: calc((var(--heatmap-cell-size, 12px) * 7) + (var(--heatmap-cell-gap, 3px) * 6));
+  padding-top: 2px;
+  box-sizing: border-box;
+}
+
+/* Container for week columns */
+.weeks {
+  display: flex;
+  gap: var(--heatmap-cell-gap, 3px);
+  /* horizontal gap between week columns */
+  align-items: flex-start;
+}
+
+/* Single week column */
+.week {
+  display: flex;
+  flex-direction: column;
+  gap: var(--heatmap-cell-gap, 3px);
+  /* vertical gap between cells */
+}
+
+/* Individual day cell */
+.cell {
+  width: var(--heatmap-cell-size, 12px);
+  height: var(--heatmap-cell-size, 12px);
+  border-radius: 2px;
+  background: var(--heatmap-empty, #ebedf0);
+  transition: background 0.3s;
+  box-sizing: border-box;
+}
+
+/* weekday spacer (if you still use it in markup) */
+.weekdaySpacer {
+  width: var(--heatmap-weekday-spacer, 30px);
+}
+
+/* Tooltip wrapper & tooltip (unchanged behaviour) */
+.tooltipWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  width: max-content;
+  max-width: 220px;
+  background-color: var(--tooltip-bg, #333);
+  color: var(--tooltip-text, #fff);
+  text-align: center;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 11px;
+  line-height: 1.2;
+  position: absolute;
+  z-index: 1000;
+  bottom: 150%;
+  /* place above cell */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  /* arrow pointing down */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--tooltip-bg, #333) transparent transparent transparent;
+}
+
+.tooltipWrapper:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Colour levels */
+.level0 {
+  background: var(--heatmap-empty, #ebedf0);
+}
+
+.level1 {
+  background: var(--heatmap-1, #c6e48b);
+}
+
+.level2 {
+  background: var(--heatmap-2, #7bc96f);
+}
+
+.level3 {
+  background: var(--heatmap-3, #239a3b);
+}
+
+.level4 {
+  background: var(--heatmap-4, #196127);
+}
