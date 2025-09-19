@@ -1,0 +1,12 @@
+.siteLogo {
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--logoColor);
+}
+
+.flexContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--headerHeight, 50px);
+}

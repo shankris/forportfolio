@@ -1,0 +1,187 @@
+/* =========================
+   VARIABLES (Light Theme)
+   ========================= */
+:root {
+
+  /* Typography */
+  --h1size: 40px;
+  --h2size: 32px;
+  --h3size: 28px;
+  --h4size: 24px;
+  --h5size: 20px;
+  --h6size: 16px;
+
+  --fontSize: 16px;
+  --fontStack: 'Open Sans', sans-serif;
+  --lineHeight: 1.6;
+
+  /* Colors */
+  --txtColor: #333;
+  --bgColor: #f2f2f2;
+  --accentColor: #203060;
+  --transitionBg: background-color 0.8s ease-in, border-color 0.8s ease-in;
+
+  /* Header & Footer */
+  --headerHeight: 50px;
+  --headerColor: #cecece;
+  --footerHeight: 50px;
+  --footerColor: #eee;
+  --logoColor: #203060;
+
+
+  /* Headings */
+  --headingFontWeight: 400;
+  --headingLineHeight: 1.2;
+  --headingPadding: 10px 0;
+  --headingMargin: 10px;
+
+  /* Layout */
+  --containerWidth: 1200px;
+  --containerMaxWidth: 96%;
+
+
+  /* =====================
+     Table Variables
+     ===================== */
+  --tableFontFamily: sans-serif;
+  --tableFontSize: 14px;
+  --tableSubhead: #909090;
+
+  --emptyStateBg: #e9e9e9;
+  --emptyStateText: #535353;
+
+  /* Header */
+  --tableHeaderBg: #cfcfcf;
+  --tableHeaderColor: #000;
+  --sortIconColor: #666;
+
+  --toggleLayoutBorder: #aaaaaa;
+  --toggleTxtColor: #848282;
+  --toggleLayoutBg: #f8f8f8;
+  --toggleLayoutBgHover: #dfdfdf;
+
+
+  /* Body */
+  --tableBorder: #ddd;
+  --tableSortedCellBg: #ebebeb;
+  --tableRowHover: #fbffbd;
+  --tableRowHoverText: inherit;
+
+  --tableTdRWDBg: #f1f1f1;
+  --tableTrRWDBgFirstChild: #e2e2e2;
+
+  --progressTextColor: #222;
+  --progressContainerBg: #d4d4d4;
+
+  --tblBtnBorderColor: #ccc;
+  --tblBtnButtonBg: white;
+  --tblBtnTextColor: black;
+  --tblBtnButtonHoverBg: #f0f0f0;
+
+
+  /* Search */
+  --searchBg: #fff;
+  --searchText: #000;
+  --searchBorder: #ccc;
+  --searchIcon: #888;
+  --clearButton: #666;
+  --clearButtonHover: #000;
+  --searchFocusBorder: #203060;
+
+  /* Pagination */
+  --pageInfo: #555;
+  --paginationBorder: #ddd;
+  --paginationBg: #f9f9f9;
+  --paginationHover: #eee;
+  --paginationDisabled: 0.5;
+
+
+  /* Heatmap levels (light mode) */
+  --heatmap-0: #ebedf0;
+  --heatmap-1: #c6e48b;
+  --heatmap-2: #7bc96f;
+  --heatmap-3: #239a3b;
+  --heatmap-4: #196127;
+}
+
+
+
+/* =========================
+   VARIABLES (Dark Theme)
+   ========================= */
+body.dark {
+  /* General */
+  --txtColor: #e4e4e4;
+  --bgColor: #333333;
+  --accentColor: #8c98f2;
+
+  /* Header & Footer */
+  --headerColor: #203060;
+  --footerColor: #203060;
+  --sortIconColor: #333;
+  --logoColor: #aaaaaa;
+
+
+
+  /* =====================  Table Variables  ===================== */
+
+  /* Table Header */
+  --tableHeaderBg: #2c2c2c;
+  --tableHeaderColor: #f0f0f0;
+  --sortIconColor: #bbb;
+
+  --emptyStateBg: #3e3e3e;
+  --emptyStateText: #c6c6c6;
+
+  --toggleLayoutBorder: #646464;
+  --toggleTxtColor: #a7a7a7;
+  --toggleLayoutBg: #3f3f3f;
+  --toggleLayoutBgHover: #3d3d3d;
+
+
+  /* Table Body */
+  --tableBorder: #555;
+  --tableSortedCellBg: #444;
+  --tableRowHover: #5c6399;
+  --tableRowHoverText: #fff;
+
+  --tableTdRWDBg: #3f3f3f;
+  --tableTdRWDBgFirstChild: var(--accentColor);
+  --tableTrRWDBgFirstChild: #4b4b4b;
+
+  --progressTextColor: #eee;
+  --progressContainerBg: #595959;
+
+
+  --tblBtnBorderColor: #444;
+  --tblBtnButtonBg: #454545;
+  --tblBtnTextColor: #eee;
+  --tblBtnButtonHoverBg: #333;
+
+  /* Search */
+  --searchBg: #3f3f3f;
+  --searchText: #e4e4e4;
+  --searchBorder: #555;
+  --searchIcon: #bbb;
+  --clearButton: #bbb;
+  --clearButtonHover: #fff;
+  --searchFocusBorder: #8c98f2;
+
+  /* Pagination */
+  --pageInfo: #bbb;
+  --paginationBorder: #555;
+  --paginationBg: #646464;
+  --paginationHover: #6e6e6e;
+
+
+  /* Heatmap */
+  --color-bg: #0d1117;
+  --color-text: #e6edf3;
+
+  /* Heatmap levels (dark mode) */
+  --heatmap-0: #161b22;
+  --heatmap-1: #0e4429;
+  --heatmap-2: #006d32;
+  --heatmap-3: #26a641;
+  --heatmap-4: #39d353;
+}
