@@ -17,8 +17,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "TanStack Tables - Portfolio Showcase",
-  description: "Portfolio Showcase",
+  title: "Components for the Portfolio",
+  description: "Portfolio Components",
 };
 
 export default function RootLayout({ children }) {
@@ -45,9 +45,7 @@ export default function RootLayout({ children }) {
         </main>
 
         {/* Site-wide footer */}
-        <footer role='contentinfo'>
-          <Footer />
-        </footer>
+        <Footer />
       </body>
     </html>
   );
