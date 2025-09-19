@@ -1,0 +1,101 @@
+.yearHeatmap {
+  font-family: sans-serif;
+}
+
+.monthRow {
+  display: flex;
+  margin-left: 26px;
+  /* margin-bottom: 4px; */
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.dayLabelSpacer {
+  width: 0px;
+  /* same as .dayLabel */
+}
+
+.monthLabel {
+  width: 23px;
+  /* cell width + gap */
+  text-align: center;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.dayLabel {
+  width: 30px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.cellWrapper {
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  position: relative;
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--heatmap-empty, #ebedf0);
+  transition: background 0.3s;
+  position: relative;
+}
+
+.level0 {
+  background: var(--heatmap-empty, #ebedf0);
+}
+
+.level1 {
+  background: var(--heatmap-1, #c6e48b);
+}
+
+.level2 {
+  background: var(--heatmap-2, #7bc96f);
+}
+
+.level3 {
+  background: var(--heatmap-3, #239a3b);
+}
+
+.level4 {
+  background: var(--heatmap-4, #196127);
+}
+
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  width: max-content;
+  max-width: 180px;
+  background-color: var(--tooltip-bg, #333);
+  color: var(--tooltip-text, #fff);
+  text-align: center;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 11px;
+  line-height: 1.2;
+  position: absolute;
+  z-index: 1;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.cellWrapper:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
