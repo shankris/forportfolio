@@ -1,0 +1,142 @@
+.wrapper {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 1000;
+}
+
+.floatingButton {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: black;
+  /* default = black */
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.floatingButton.error {
+  background: #e00;
+  /* red when errors exist */
+}
+
+.buttonLabel {
+  color: white;
+}
+
+.dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+
+.menu {
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  background: white;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  width: 220px;
+  overflow: hidden;
+  animation: fadeIn 0.15s ease;
+}
+
+.menuItem {
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  background: #f5f5f5;
+}
+
+.badge {
+  background: #e00;
+  color: white;
+  border-radius: 12px;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.rightLabel {
+  color: #666;
+  font-size: 12px;
+}
+
+.chevron {
+  color: #999;
+  margin-left: 8px;
+}
+
+.icon {
+  margin-left: 8px;
+}
+
+.submenu {
+  position: absolute;
+  bottom: 60px;
+  right: 230px;
+  /* offset from main menu */
+  background: white;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  width: 160px;
+  animation: fadeIn 0.15s ease;
+}
+
+.submenuItem {
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.submenuItem:hover {
+  background: #f5f5f5;
+}
+
+.itemRight {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  color: #888;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

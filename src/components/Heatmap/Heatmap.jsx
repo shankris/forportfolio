@@ -29,10 +29,17 @@ function groupByWeeks(dates) {
   return weeks;
 }
 
-export default function Heatmap() {
-  // derive start/end from data file (assumes data sorted or full year)
-  const startDate = new Date(data[0].date);
-  const endDate = new Date(data[data.length - 1].date);
+export default function Heatmap({ startDate: startProp, endDate: endProp }) {
+  // --- Default range: last 12 months (today - 1 year + 1 day → today)
+  const today = new Date();
+  const defaultEnd = today;
+  const defaultStart = new Date();
+  defaultStart.setFullYear(today.getFullYear() - 1);
+  defaultStart.setDate(defaultStart.getDate() + 1);
+
+  // Use props or defaults
+  const startDate = useMemo(() => (startProp ? new Date(startProp) : defaultStart), [startProp]);
+  const endDate = useMemo(() => (endProp ? new Date(endProp) : defaultEnd), [endProp]);
 
   // create lookup
   const lookup = useMemo(() => {
@@ -45,24 +52,6 @@ export default function Heatmap() {
   const dates = useMemo(() => getDates(startDate, endDate), [startDate, endDate]);
   const weeks = useMemo(() => groupByWeeks(dates), [dates]);
 
-  // compute monthLabels by finding the week that contains the 1st day of each month
-  const monthLabels = useMemo(() => {
-    const year = startDate.getFullYear();
-    const months = [];
-    for (let m = 0; m < 12; m++) {
-      const first = new Date(year, m, 1);
-      const iso = first.toISOString().split("T")[0];
-      const weekIndex = weeks.findIndex((week) => week.some((d) => d.toISOString().split("T")[0] === iso));
-      if (weekIndex !== -1) {
-        months.push({
-          index: weekIndex,
-          month: first.toLocaleString("default", { month: "short" }),
-        });
-      }
-    }
-    return months;
-  }, [startDate, weeks]);
-
   // read CSS variables for precise pixel math (keeps CSS + JS in sync)
   const [colWidth, setColWidth] = useState(17); // default
   const [spacer, setSpacer] = useState(30);
@@ -70,7 +59,6 @@ export default function Heatmap() {
   useEffect(() => {
     function computeFromCSS() {
       const root = getComputedStyle(document.documentElement);
-      // values may be like "14px" -> parseFloat
       const cell = parseFloat(root.getPropertyValue("--heatmap-cell-size")) || 14;
       const gap = parseFloat(root.getPropertyValue("--heatmap-cell-gap")) || 3;
       const sp = parseFloat(root.getPropertyValue("--heatmap-weekday-spacer")) || 30;
@@ -90,10 +78,8 @@ export default function Heatmap() {
           const firstDay = week[0];
           const month = firstDay.toLocaleString("default", { month: "short" });
 
-          // Look at the previous week's first day
           const prevMonth = i > 0 ? weeks[i - 1][0].toLocaleString("default", { month: "short" }) : null;
 
-          // Force the very first week to display its month
           const showLabel = i === 0 || month !== prevMonth;
 
           return (

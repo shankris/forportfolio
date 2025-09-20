@@ -1,0 +1,49 @@
+.stack {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.avatarWrapper {
+  position: relative;
+  margin-left: -15px;
+  /* overlap */
+  cursor: pointer;
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+  /* default stacking */
+}
+
+.avatar {
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+}
+
+.avatarWrapper:hover {
+  transform: scale(1.2);
+}
+
+.avatarWrapper:hover .avatar {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.name {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  white-space: nowrap;
+  color: #333;
+}
+
+.avatarWrapper:hover .name {
+  display: block;
+}
